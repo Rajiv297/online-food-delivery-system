@@ -114,7 +114,18 @@ Depending on the role of the user logging in (or via the **DemoRoleBar** at the 
 
 ## 4. Vercel & Git Deployment Guide
 
-### A. Deploy to GitHub / GitLab (Git Setup)
+### A. Deploy to GitHub Pages
+The GitHub Actions workflow builds and publishes this project to GitHub Pages whenever a commit is pushed to `main`.
+
+1. In the repository on GitHub, open **Settings -> Pages**.
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+3. Push to `main` or run **Actions -> Deploy to GitHub Pages -> Run workflow**.
+4. When the workflow succeeds, open **Settings -> Pages** to find the published site:
+   **https://rajiv297.github.io/online-food-delivery-system/**
+
+The GitHub Pages build uses hash-based routing so client-side routes work on refresh. Local and Vercel builds continue to use browser-history routing.
+
+### B. Deploy to GitHub / GitLab (Git Setup)
 This workspace is initialized with Git. Follow these commands to link it to your GitHub account:
 
 ```bash
@@ -135,7 +146,7 @@ git branch -M main
 git push -u origin main
 ```
 
-### B. Deploy to Vercel (1-Click & Zero-Config)
+### C. Deploy to Vercel (1-Click & Zero-Config)
 The project includes a ready-to-use **`vercel.json`** configured with SPA rewrite rules to ensure client-side routing works on all routes (`/customer/restaurants`, `/restaurant/dashboard`, etc.) without 404 errors.
 
 #### Option 1: Via Vercel Web Dashboard (Recommended)

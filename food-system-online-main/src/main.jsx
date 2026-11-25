@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, HashRouter } from 'react-router-dom';
 import App from './App.jsx';
 import { QuickBiteProvider } from './context/QuickBiteContext.jsx';
 
@@ -12,12 +12,14 @@ import '../css/restaurant.css';
 import '../css/delivery.css';
 import '../css/admin.css';
 
+const Router = import.meta.env.BASE_URL === '/' ? BrowserRouter : HashRouter;
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <Router>
       <QuickBiteProvider>
         <App />
       </QuickBiteProvider>
-    </BrowserRouter>
+    </Router>
   </React.StrictMode>
 );
